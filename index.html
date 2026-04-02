@@ -65,6 +65,12 @@
       width:0; height:1px; background:var(--gold);
       animation: loaderBar 1s ease .3s forwards;
     }
+    .loader-sub {
+      font-size:.62rem; letter-spacing:4px; text-transform:uppercase;
+      color:rgba(245,239,228,.45); margin-top:1rem;
+      opacity:0; animation:loaderSub 1s ease .6s forwards;
+    }
+    @keyframes loaderSub { 0%{opacity:0} 100%{opacity:1} }
     @keyframes loaderIn { 0%{opacity:0;transform:scale(.96)} 40%{opacity:1;transform:scale(1)} 100%{opacity:.7} }
     @keyframes loaderBar { to { width:100%; } }
 
@@ -72,11 +78,7 @@
     nav {
       position:fixed; top:0; left:0; right:0; z-index:500;
       display:flex; align-items:center; justify-content:space-between;
-      padding:2rem 5rem;
-      transition: padding .5s cubic-bezier(.16,1,.3,1), background .5s, box-shadow .5s;
-    }
-    nav.solid {
-      padding:1rem 5rem;
+      padding:1.2rem 5rem;
       background:rgba(245,239,228,.96);
       backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
       box-shadow:0 1px 0 rgba(0,0,0,.05);
@@ -84,7 +86,7 @@
     .nav-logo {
       font-family:'Cormorant Garamond',serif;
       font-size:1.45rem; font-weight:600; letter-spacing:5px;
-      text-decoration:none; color:#fff; transition:color .5s;
+      text-decoration:none; color:var(--ink); transition:color .3s;
       position:relative; z-index:600;
     }
     nav.solid .nav-logo { color:var(--ink); }
@@ -92,7 +94,7 @@
     .nav-links { display:flex; gap:2.5rem; list-style:none; }
     .nav-links a {
       font-size:.65rem; letter-spacing:2.5px; text-transform:uppercase;
-      text-decoration:none; color:rgba(255,255,255,.6); transition:color .3s;
+      text-decoration:none; color:var(--muted); transition:color .3s;
       position:relative; padding-bottom:2px;
     }
     .nav-links a::after {
@@ -106,7 +108,7 @@
     .nav-cta {
       font-size:.62rem; letter-spacing:2px; text-transform:uppercase;
       text-decoration:none; padding:.62rem 1.5rem;
-      border:1px solid rgba(255,255,255,.28); color:rgba(255,255,255,.8);
+      border:1px solid rgba(184,125,44,.5); color:var(--gold);
       transition:all .3s;
     }
     nav.solid .nav-cta { border-color:rgba(184,125,44,.5); color:var(--gold); }
@@ -118,7 +120,7 @@
     }
     .hamburger span {
       display:block; width:24px; height:1.5px;
-      background:#fff; transition:all .3s;
+      background:var(--ink); transition:all .3s;
     }
     nav.solid .hamburger span { background:var(--ink); }
     .hamburger.o span:nth-child(1) { transform:rotate(45deg) translate(5px,5px); background:var(--cream); }
@@ -176,7 +178,7 @@
     }
     .h-eyebrow {
       display:inline-flex; align-items:center; gap:.9rem;
-      font-size:.62rem; letter-spacing:3.5px; text-transform:uppercase;
+      font-size:.82rem; letter-spacing:4px; text-transform:uppercase; font-weight:600;
       color:var(--gold-mid); margin-bottom:1.75rem;
       opacity:0; transform:translateY(14px);
       animation:up .8s ease 1.2s forwards;
@@ -544,6 +546,53 @@
     .foot-mid { font-size:.68rem; font-weight:300; color:rgba(245,239,228,.2); text-align:center; line-height:1.7; }
     .foot-cr { font-size:.6rem; letter-spacing:1px; color:rgba(245,239,228,.14); }
 
+    /* WAITLIST MODAL */
+    .modal-ov {
+      position:fixed; inset:0; z-index:6000;
+      background:rgba(10,16,9,.7); backdrop-filter:blur(6px);
+      display:flex; align-items:center; justify-content:center;
+      opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s;
+    }
+    .modal-ov.open { opacity:1; visibility:visible; }
+    .modal {
+      background:var(--cream); max-width:520px; width:90%; padding:3.5rem 3rem;
+      position:relative;
+    }
+    .modal-close {
+      position:absolute; top:1.2rem; right:1.5rem;
+      background:none; border:none; font-size:1.4rem; color:var(--muted);
+      cursor:pointer; transition:color .3s;
+    }
+    .modal-close:hover { color:var(--ink); }
+    .modal-ey {
+      display:block; font-size:.58rem; letter-spacing:4px; text-transform:uppercase;
+      color:var(--gold); margin-bottom:1.2rem;
+    }
+    .modal h2 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem; font-weight:400; line-height:1.15; color:var(--ink); margin-bottom:1rem;
+    }
+    .modal p {
+      font-size:.85rem; font-weight:300; line-height:1.75; color:var(--muted); margin-bottom:2rem;
+    }
+    .modal-form { display:flex; flex-direction:column; gap:1.2rem; }
+    .modal-field {
+      font-family:'Jost',sans-serif; font-size:.82rem; font-weight:300;
+      padding:.85rem 1rem; border:1px solid var(--cream-dark); background:var(--white);
+      color:var(--text); outline:none; transition:border-color .3s;
+    }
+    .modal-field::placeholder { color:var(--cream-dark); }
+    .modal-field:focus { border-color:var(--gold); }
+    .modal-btn {
+      font-family:'Jost',sans-serif;
+      display:inline-flex; align-items:center; justify-content:center;
+      background:var(--gold); color:var(--ink);
+      font-size:.68rem; letter-spacing:2.5px; text-transform:uppercase; font-weight:600;
+      border:none; padding:1.1rem 2.75rem; cursor:pointer;
+      transition:background .3s, transform .25s;
+    }
+    .modal-btn:hover { background:var(--gold-light); transform:translateY(-2px); }
+
     /* ANIMS */
     @keyframes up { to { opacity:1; transform:none; } }
     @keyframes fadein { to { opacity:1; } }
@@ -609,7 +658,7 @@
 </head>
 <body>
 
-<div id="loader"><div class="loader-inner"><span class="loader-logo">GCU</span><div class="loader-bar"></div></div></div>
+<div id="loader"><div class="loader-inner"><span class="loader-logo">GCU</span><div class="loader-bar"></div><div class="loader-sub">Gestión de Condominios Urbanos</div></div></div>
 
 <!-- WA -->
 <a class="wa" href="https://wa.me/50688167645" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -640,7 +689,7 @@
     <li><a href="#contact">Contacto</a></li>
   </ul>
   <div class="nav-r">
-    <a href="#contact" class="nav-cta">Solicitar propuesta</a>
+    <a href="#" class="nav-cta" onclick="openWait(event)">Solicitar propuesta</a>
     <button class="hamburger" id="hbg" onclick="tM()" aria-label="Menú">
       <span></span><span></span><span></span>
     </button>
@@ -657,7 +706,7 @@
       <h1 class="h-title" id="heroTitle">
     <span class="mask-line"><span>Su condominio,</span></span>
     <span class="mask-line"><span>en <em>buenas</em></span></span>
-    <span class="mask-line"><span><em>manos.</em></span></span>
+    <span class="mask-line"><span><em>manos</em></span></span>
   </h1>
     </div>
     <div class="h-stats">
@@ -667,7 +716,6 @@
       </div>
     </div>
   </div>
-  <div class="h-scroll"><div class="h-scroll-line"></div><p>Scroll</p></div>
 </section>
 
 <!-- MARQUEE -->
@@ -722,7 +770,7 @@
       <div class="why-card">
         <span class="why-icon">🤝</span>
         <h3>Servicio personalizado</h3>
-        <p>Cada condominio recibe atención directa de nuestra administradora.</p>
+        <p>Cada condominio recibe atención personalizada.</p>
       </div>
     </div>
   </div>
@@ -736,8 +784,8 @@
   </div>
   <div class="ab-text">
     <div class="reveal">
-      <h2 class="h2">Acerca de GCU</h2>
-      <p class="body">Desde el año 2005, GCU se especializa en la gestión inmobiliaria ofreciendo un servicio personalizado a los condóminos. Nuestro enfoque principal consiste en llevar a cabo un trabajo eficiente y eficaz en beneficio del condominio.</p>
+      <h2 class="h2">Administración que genera confianza</h2>
+      <p class="body">GCU se especializa en la gestión inmobiliaria ofreciendo un servicio personalizado a los condóminos. Nuestro enfoque principal consiste en llevar a cabo un trabajo eficiente y eficaz en beneficio del condominio.</p>
     </div>
   </div>
 </section>
@@ -758,7 +806,6 @@
 <section id="services">
   <div class="svc-hdr">
     <div class="reveal">
-      <span class="eyebrow" style="color:var(--gold-mid)">Lo que hacemos</span>
       <h2 class="svc-h">Alcance de<br>nuestros <em>servicios</em></h2>
     </div>
     <p class="svc-intro reveal d1">Gestionamos cada aspecto de su condominio: desde la operación diaria hasta la gobernanza y las finanzas.</p>
@@ -809,7 +856,6 @@
 <!-- TYPES -->
 <section id="types">
   <div class="types-hdr reveal">
-    <span class="eyebrow" style="color:var(--gold-mid)">Experiencia comprobada</span>
     <h2 class="h2" style="color:var(--cream);font-weight:300;margin-bottom:0;">Tipos de condominios <em style="font-style:italic;color:var(--gold-light)">que administramos</em></h2>
   </div>
   <div class="types-grid">
@@ -873,7 +919,7 @@
       <span class="ct-tag">Hablemos</span>
       <h2 class="ct-h">¿Listo para una gestión<br><em>sin preocupaciones?</em></h2>
       <p class="ct-p">Contáctenos y conozca cómo GCU puede transformar la administración de su condominio.</p>
-      <a href="mailto:ealier@gcucr.com" class="btn-g">Enviar mensaje <span>→</span></a>
+      <a href="#" class="btn-g" onclick="openWait(event)">Solicitar propuesta <span>→</span></a>
     </div>
     <div class="info-list reveal d1">
       <div class="info-row"><span class="ik">Responsable</span><span class="iv">Erika Alier Montealegre</span></div>
@@ -885,6 +931,24 @@
     </div>
   </div>
 </section>
+
+<!-- WAITLIST MODAL -->
+<div class="modal-ov" id="waitModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeWait()">&times;</button>
+    <span class="modal-ey">Lista de espera</span>
+    <h2>Actualmente estamos a capacidad completa</h2>
+    <p>En este momento no contamos con disponibilidad para nuevos condominios. Si desea ser considerado cuando se abra un espacio, por favor complete el siguiente formulario.</p>
+    <form class="modal-form" id="waitForm" onsubmit="submitWait(event)">
+      <input class="modal-field" type="text" name="nombre" placeholder="Nombre completo" required />
+      <input class="modal-field" type="email" name="correo" placeholder="Correo electrónico" required />
+      <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" />
+      <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" />
+      <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
+      <button type="submit" class="modal-btn">Enviar solicitud</button>
+    </form>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -969,6 +1033,32 @@ const rObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('v'); rObs.unobserve(e.target); } });
 },{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
+
+// WAITLIST MODAL
+function openWait(e){
+  e.preventDefault();
+  document.getElementById('waitModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeWait(){
+  document.getElementById('waitModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('waitModal').addEventListener('click',function(e){
+  if(e.target===this) closeWait();
+});
+function submitWait(e){
+  e.preventDefault();
+  const f=e.target;
+  const nombre=f.nombre.value;
+  const correo=f.correo.value;
+  const telefono=f.telefono.value;
+  const condominio=f.condominio.value;
+  const mensaje=f.mensaje.value;
+  const body=`Nombre: ${nombre}%0ACorreo: ${correo}%0ATeléfono: ${telefono}%0ACondominio: ${condominio}%0AMensaje: ${mensaje}`;
+  window.location.href=`mailto:ealier@gcucr.com?subject=Lista de Espera - ${encodeURIComponent(nombre)}&body=${body}`;
+  closeWait();
+}
 </script>
 </body>
 </html>
