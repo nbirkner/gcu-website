@@ -939,12 +939,16 @@
     <span class="modal-ey">Lista de espera</span>
     <h2>Actualmente estamos a capacidad completa</h2>
     <p>En este momento no contamos con disponibilidad para nuevos condominios. Si desea ser considerado cuando se abra un espacio, por favor complete el siguiente formulario.</p>
-    <form class="modal-form" id="waitForm" onsubmit="submitWait(event)">
-      <input class="modal-field" type="text" name="nombre" placeholder="Nombre completo" required />
-      <input class="modal-field" type="email" name="correo" placeholder="Correo electrónico" required />
-      <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" />
-      <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" />
-      <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
+    <form class="modal-form" id="waitForm" action="https://formsubmit.co/ealier@gcucr.com" method="POST">
+      <input type="hidden" name="_subject" value="Nueva solicitud — Lista de espera GCU" />
+      <input type="hidden" name="_next" value="https://gcucr.com/#contact" />
+      <input type="hidden" name="_captcha" value="true" />
+      <input type="text" name="_honey" style="display:none" />
+      <input class="modal-field" type="text" name="Nombre" placeholder="Nombre completo" required />
+      <input class="modal-field" type="email" name="Correo" placeholder="Correo electrónico" required />
+      <input class="modal-field" type="tel" name="Teléfono" placeholder="Teléfono" />
+      <input class="modal-field" type="text" name="Condominio" placeholder="Nombre del condominio" />
+      <textarea class="modal-field" name="Mensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
       <button type="submit" class="modal-btn">Enviar solicitud</button>
     </form>
   </div>
@@ -1047,18 +1051,6 @@ function closeWait(){
 document.getElementById('waitModal').addEventListener('click',function(e){
   if(e.target===this) closeWait();
 });
-function submitWait(e){
-  e.preventDefault();
-  const f=e.target;
-  const nombre=f.nombre.value;
-  const correo=f.correo.value;
-  const telefono=f.telefono.value;
-  const condominio=f.condominio.value;
-  const mensaje=f.mensaje.value;
-  const body=`Nombre: ${nombre}%0ACorreo: ${correo}%0ATeléfono: ${telefono}%0ACondominio: ${condominio}%0AMensaje: ${mensaje}`;
-  window.location.href=`mailto:ealier@gcucr.com?subject=Lista de Espera - ${encodeURIComponent(nombre)}&body=${body}`;
-  closeWait();
-}
 </script>
 </body>
 </html>
