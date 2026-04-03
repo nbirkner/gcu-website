@@ -139,23 +139,26 @@
     .mob-menu {
       position:fixed; inset:0; z-index:550;
       background:var(--ink);
-      display:flex; flex-direction:column; justify-content:center; align-items:center; gap:2.5rem;
+      display:flex; flex-direction:column; align-items:center; gap:2rem;
+      padding:5rem 1.5rem 3rem;
+      overflow-y:auto;
       opacity:0; visibility:hidden; pointer-events:none;
       transition:opacity .4s, visibility .4s;
     }
     .mob-menu.o { opacity:1; visibility:visible; pointer-events:all; }
     .mob-menu a {
       font-family:'Cormorant Garamond',serif;
-      font-size:3.2rem; font-weight:300; font-style:italic;
+      font-size:2.8rem; font-weight:300; font-style:italic;
       color:var(--cream); text-decoration:none;
       opacity:0; transform:translateY(20px); transition:color .3s;
     }
     .mob-menu.o a { animation:mmIn .4s ease forwards; }
-    .mob-menu.o a:nth-child(1){animation-delay:.08s}
-    .mob-menu.o a:nth-child(2){animation-delay:.16s}
-    .mob-menu.o a:nth-child(3){animation-delay:.24s}
-    .mob-menu.o a:nth-child(4){animation-delay:.32s}
-    .mob-menu.o a:nth-child(5){animation-delay:.4s}
+    .mob-menu.o a:nth-child(2){animation-delay:.08s}
+    .mob-menu.o a:nth-child(3){animation-delay:.16s}
+    .mob-menu.o a:nth-child(4){animation-delay:.24s}
+    .mob-menu.o a:nth-child(5){animation-delay:.32s}
+    .mob-menu.o a:nth-child(6){animation-delay:.4s}
+    .mob-menu.o a:nth-child(7){animation-delay:.48s}
     .mob-menu a:hover { color:var(--gold-light); }
     .mob-contact {
       font-size:.78rem; letter-spacing:1.5px; color:rgba(246,240,230,.3);
@@ -194,12 +197,15 @@
     }
     .h-eyebrow {
       display:inline-flex; align-items:center; gap:.9rem;
-      font-size:.82rem; letter-spacing:4px; text-transform:uppercase; font-weight:600;
-      color:var(--gold-mid); margin-bottom:1.75rem;
+      font-size:.72rem; letter-spacing:3.5px; text-transform:uppercase; font-weight:500;
+      color:var(--gold-light); margin-bottom:1.75rem;
+      background:rgba(0,0,0,.35); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      padding:.55rem 1.1rem .55rem .85rem;
+      border-left:2px solid var(--gold);
       opacity:0; transform:translateY(14px);
       animation:up .8s ease 1.2s forwards;
     }
-    .h-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+    .h-eyebrow::before { display:none; }
     h1.h-title {
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(4rem,9.5vw,9rem);
@@ -700,7 +706,11 @@
   <a href="#services" onclick="cM()">Servicios</a>
   <a href="#types" onclick="cM()">Condominios</a>
   <a href="#contact" onclick="cM()">Contacto</a>
-  <div class="mob-contact">ealier@gcucr.com &nbsp;·&nbsp; 2215-3150</div>
+  <a href="#" onclick="cM(); openWait(event)">Solicitar propuesta</a>
+  <div class="mob-contact">
+    <div style="font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(246,240,230,.5);margin-bottom:.5rem;">Gestión de Condominios Urbanos</div>
+    ealier@gcucr.com &nbsp;·&nbsp; 8816-7645
+  </div>
 </div>
 
 <!-- NAV -->
@@ -727,7 +737,7 @@
   <div class="hero-ov"></div>
   <div class="hero-body">
     <div>
-      <p class="h-eyebrow">San José · Costa Rica · Est. 2005</p>
+      <p class="h-eyebrow">GCU · Gestión de Condominios Urbanos · San José · Costa Rica · Est. 2005</p>
       <h1 class="h-title" id="heroTitle">
     <span class="mask-line"><span>Su condominio,</span></span>
     <span class="mask-line"><span>en <em>buenas</em></span></span>
