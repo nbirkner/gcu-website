@@ -8,6 +8,7 @@
   <meta property="og:description" content="20+ años administrando condominios en Costa Rica con profesionalismo y confianza." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#111A0F" />
+  <link rel="icon" type="image/png" href="images/gcu-logo.png" />
   <title>GCU — Gestión de Condominios Urbanos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,7 +89,14 @@
       font-size:1.45rem; font-weight:600; letter-spacing:5px;
       text-decoration:none; color:var(--ink); transition:color .3s;
       position:relative; z-index:600;
+      display:flex; align-items:center; gap:.6rem;
     }
+    .nav-logo img {
+      height:2rem; width:auto; display:block;
+      filter: brightness(0) saturate(100%);
+      transition: filter .3s;
+    }
+    .nav-logo.mo img { filter: brightness(0) saturate(100%) invert(1); }
     nav.solid .nav-logo { color:var(--ink); }
     .nav-logo.mo { color:var(--cream) !important; }
     .nav-links { display:flex; gap:2.5rem; list-style:none; }
@@ -154,6 +162,14 @@
       text-align:center; opacity:0; transition:opacity .4s .5s;
     }
     .mob-menu.o .mob-contact { opacity:1; }
+    .mob-close {
+      position:absolute; top:1.5rem; right:1.5rem;
+      background:none; border:none; cursor:pointer; padding:.5rem;
+      color:var(--cream); opacity:.6; transition:opacity .3s;
+      line-height:1;
+    }
+    .mob-close:hover { opacity:1; }
+    .mob-close svg { display:block; width:1.5rem; height:1.5rem; }
     @keyframes mmIn { to { opacity:1; transform:translateY(0); } }
 
     /* HERO */
@@ -551,17 +567,21 @@
       position:fixed; inset:0; z-index:6000;
       background:rgba(10,16,9,.7); backdrop-filter:blur(6px);
       display:flex; align-items:center; justify-content:center;
+      padding:1rem;
       opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s;
     }
     .modal-ov.open { opacity:1; visibility:visible; }
     .modal {
-      background:var(--cream); max-width:520px; width:90%; padding:3.5rem 3rem;
+      background:var(--cream); max-width:520px; width:100%;
+      padding:3.5rem 3rem;
       position:relative;
+      max-height:90vh; overflow-y:auto;
     }
     .modal-close {
-      position:absolute; top:1.2rem; right:1.5rem;
-      background:none; border:none; font-size:1.4rem; color:var(--muted);
-      cursor:pointer; transition:color .3s;
+      position:sticky; top:0; float:right;
+      background:none; border:none; font-size:1.6rem; color:var(--muted);
+      cursor:pointer; transition:color .3s; line-height:1;
+      margin-bottom:-1.5rem;
     }
     .modal-close:hover { color:var(--ink); }
     .modal-ey {
@@ -670,6 +690,11 @@
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="cM()" aria-label="Cerrar menú">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
   <a href="#why" onclick="cM()">Nosotros</a>
   <a href="#mision" onclick="cM()">Misión</a>
   <a href="#services" onclick="cM()">Servicios</a>
@@ -680,7 +705,7 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo" id="nLogo">GCU</a>
+  <a href="#" class="nav-logo" id="nLogo"><img src="images/gcu-logo.png" alt="GCU logo" />GCU</a>
   <ul class="nav-links">
     <li><a href="#why">Nosotros</a></li>
     <li><a href="#mision">Misión</a></li>
@@ -702,7 +727,7 @@
   <div class="hero-ov"></div>
   <div class="hero-body">
     <div>
-      <p class="h-eyebrow">Escazú · San José · Costa Rica · Est. 2005</p>
+      <p class="h-eyebrow">San José · Costa Rica · Est. 2005</p>
       <h1 class="h-title" id="heroTitle">
     <span class="mask-line"><span>Su condominio,</span></span>
     <span class="mask-line"><span>en <em>buenas</em></span></span>
@@ -908,7 +933,7 @@
   </div>
   <div class="ps-text">
     <p>"Cada condominio es único.<br>Nuestro servicio también lo es."</p>
-    <span>GCU · Escazú, Costa Rica</span>
+    <span>GCU · Costa Rica</span>
   </div>
 </div>
 
@@ -923,7 +948,7 @@
     </div>
     <div class="info-list reveal d1">
       <div class="info-row"><span class="ik">Responsable</span><span class="iv">Erika Alier Montealegre</span></div>
-      <div class="info-row"><span class="ik">Empresa</span><span class="iv">GCU S.R.L.</span></div>
+      <div class="info-row"><span class="ik">Empresa</span><span class="iv">GCU Gestión de Condominios Urbanos S.R.L.</span></div>
       <div class="info-row"><span class="ik">Ubicación</span><span class="iv">Escazú, San José, Costa Rica</span></div>
       <div class="info-row"><span class="ik">Teléfono</span><a href="tel:+50622153150" class="iv">2215-3150</a></div>
       <div class="info-row"><span class="ik">Celular</span><a href="tel:+50688167645" class="iv">8816-7645</a></div>
@@ -936,9 +961,8 @@
 <div class="modal-ov" id="waitModal">
   <div class="modal">
     <button class="modal-close" onclick="closeWait()">&times;</button>
-    <span class="modal-ey">Lista de espera</span>
-    <h2>Actualmente estamos a capacidad completa</h2>
-    <p>En este momento no contamos con disponibilidad para nuevos condominios. Si desea ser considerado cuando se abra un espacio, por favor complete el siguiente formulario.</p>
+    <h2>Solicitar propuesta</h2>
+    <p>Trabajamos con un número limitado de clientes para garantizar un servicio altamente personalizado. Con gusto podemos evaluar nuevas solicitudes según disponibilidad.</p>
     <form class="modal-form" id="waitForm" onsubmit="sendWhatsApp(event)">
       <input class="modal-field" type="text" id="wNombre" placeholder="Nombre completo" required />
       <input class="modal-field" type="email" id="wCorreo" placeholder="Correo electrónico" required />
