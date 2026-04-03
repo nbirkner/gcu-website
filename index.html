@@ -973,13 +973,15 @@
     <button class="modal-close" onclick="closeWait()">&times;</button>
     <h2>Solicitar propuesta</h2>
     <p>Trabajamos con un número limitado de clientes para garantizar un servicio altamente personalizado. Con gusto podemos evaluar nuevas solicitudes según disponibilidad.</p>
-    <form class="modal-form" id="waitForm" onsubmit="sendWhatsApp(event)">
-      <input class="modal-field" type="text" id="wNombre" placeholder="Nombre completo" required />
-      <input class="modal-field" type="email" id="wCorreo" placeholder="Correo electrónico" required />
-      <input class="modal-field" type="tel" id="wTelefono" placeholder="Teléfono" />
-      <input class="modal-field" type="text" id="wCondominio" placeholder="Nombre del condominio" />
-      <textarea class="modal-field" id="wMensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
-      <button type="submit" class="modal-btn">Enviar por WhatsApp</button>
+    <form class="modal-form" id="waitForm" onsubmit="submitForm(event)">
+      <input type="hidden" name="_subject" value="Solicitud de propuesta — GCU" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input class="modal-field" type="text" name="nombre" placeholder="Nombre completo" required />
+      <input class="modal-field" type="email" name="correo" placeholder="Correo electrónico" required />
+      <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" />
+      <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" />
+      <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
+      <button type="submit" class="modal-btn" id="waitBtn">Enviar solicitud</button>
     </form>
   </div>
 </div>
@@ -1081,19 +1083,23 @@ function closeWait(){
 document.getElementById('waitModal').addEventListener('click',function(e){
   if(e.target===this) closeWait();
 });
-function sendWhatsApp(e){
+async function submitForm(e){
   e.preventDefault();
-  const nombre=document.getElementById('wNombre').value;
-  const correo=document.getElementById('wCorreo').value;
-  const telefono=document.getElementById('wTelefono').value;
-  const condominio=document.getElementById('wCondominio').value;
-  const mensaje=document.getElementById('wMensaje').value;
-  let text=`*Lista de Espera GCU*%0A%0A*Nombre:* ${encodeURIComponent(nombre)}%0A*Correo:* ${encodeURIComponent(correo)}`;
-  if(telefono) text+=`%0A*Teléfono:* ${encodeURIComponent(telefono)}`;
-  if(condominio) text+=`%0A*Condominio:* ${encodeURIComponent(condominio)}`;
-  if(mensaje) text+=`%0A*Mensaje:* ${encodeURIComponent(mensaje)}`;
-  window.open(`https://wa.me/50688167645?text=${text}`,'_blank');
-  closeWait();
+  const btn=document.getElementById('waitBtn');
+  btn.textContent='Enviando...'; btn.disabled=true;
+  try {
+    const res=await fetch('https://formsubmit.co/ajax/ealier@gcucr.com',{
+      method:'POST',
+      headers:{'Accept':'application/json'},
+      body:new FormData(document.getElementById('waitForm'))
+    });
+    if(res.ok){
+      document.getElementById('waitForm').innerHTML='<p style="text-align:center;padding:2rem 0;font-family:\'Cormorant Garamond\',serif;font-size:1.3rem;color:var(--gold);">¡Gracias! Nos pondremos en contacto pronto.</p>';
+    } else { throw new Error(); }
+  } catch(_){
+    btn.textContent='Enviar solicitud'; btn.disabled=false;
+    alert('Hubo un error. Por favor intente de nuevo.');
+  }
 }
 </script>
 </body>
