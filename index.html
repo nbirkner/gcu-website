@@ -4,12 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="GCU – Gestión de Condominios Urbanos. Administración profesional de condominios horizontales, verticales y comerciales en Escazú, Costa Rica desde 2005." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.gcucr.com/" />
   <meta property="og:title" content="GCU — Gestión de Condominios Urbanos" />
   <meta property="og:description" content="20+ años administrando condominios en Costa Rica con profesionalismo y confianza." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_CR" />
+  <meta property="og:site_name" content="GCU" />
+  <meta property="og:url" content="https://www.gcucr.com/" />
+  <meta property="og:image" content="https://www.gcucr.com/images/img-008.jpg" />
+  <meta property="og:image:alt" content="Calle interna con palmeras de un condominio horizontal en Costa Rica" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GCU — Gestión de Condominios Urbanos" />
+  <meta name="twitter:description" content="20+ años administrando condominios en Costa Rica con profesionalismo y confianza." />
+  <meta name="twitter:image" content="https://www.gcucr.com/images/img-008.jpg" />
   <meta name="theme-color" content="#111A0F" />
   <link rel="icon" type="image/png" href="images/gcu-logo.png" />
   <title>GCU — Gestión de Condominios Urbanos</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "GCU Gestión de Condominios Urbanos",
+    "url": "https://www.gcucr.com/",
+    "image": "https://www.gcucr.com/images/img-008.jpg",
+    "logo": "https://www.gcucr.com/images/gcu-logo.png",
+    "email": "ealier@gcucr.com",
+    "telephone": "+50622153150",
+    "foundingDate": "2005",
+    "areaServed": "Costa Rica",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Escazú",
+      "addressRegion": "San José",
+      "addressCountry": "CR"
+    },
+    "description": "Administración profesional de condominios horizontales, verticales y comerciales en Escazú, Costa Rica desde 2005."
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet" />
@@ -25,18 +59,32 @@
       --gold:       #B87D2C;
       --gold-mid:   #CC9640;
       --gold-light: #E4B860;
+      --gold-ink:   #7A4E12;
       --text:       #26221C;
-      --muted:      #796F62;
+      --muted:      #5A5146;
       --white:      #FDFAF4;
     }
-    html { scroll-behavior: smooth; }
-    section[id] { scroll-margin-top: 80px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    section[id] { scroll-margin-top: 96px; }
     body {
       font-family: 'Jost', sans-serif;
       background: var(--cream);
       color: var(--text);
       overflow-x: hidden;
+      line-height: 1.5;
     }
+    ::selection { background: rgba(184,125,44,.32); color: var(--ink); }
+    :focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+    .skip {
+      position: absolute; left: 1rem; top: -4rem; z-index: 9000;
+      background: var(--cream); color: var(--ink);
+      padding: .7rem 1rem; text-decoration: none;
+      font-size: .85rem; letter-spacing: .04em;
+    }
+    .skip:focus { top: 1rem; }
 
     /* GRAIN */
     body::after {
@@ -101,7 +149,7 @@
     .nav-logo.mo { color:var(--cream) !important; }
     .nav-links { display:flex; gap:2.5rem; list-style:none; }
     .nav-links a {
-      font-size:.65rem; letter-spacing:2.5px; text-transform:uppercase;
+      font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
       text-decoration:none; color:var(--muted); transition:color .3s;
       position:relative; padding-bottom:2px;
     }
@@ -111,20 +159,21 @@
     }
     .nav-links a:hover::after, .nav-links a.active::after { width:100%; }
     nav.solid .nav-links a { color:var(--muted); }
-    .nav-links a:hover, .nav-links a.active { color:var(--gold-mid) !important; }
+    .nav-links a:hover, .nav-links a.active { color:var(--gold-ink) !important; }
     .nav-r { display:flex; align-items:center; gap:2rem; }
     .nav-cta {
-      font-size:.62rem; letter-spacing:2px; text-transform:uppercase;
-      text-decoration:none; padding:.62rem 1.5rem;
-      border:1px solid rgba(184,125,44,.5); color:var(--gold);
-      transition:all .3s;
+      font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+      text-decoration:none; padding:.7rem 1.35rem;
+      border:1px solid rgba(122,78,18,.55); color:var(--gold-ink);
+      transition:background .3s, color .3s, border-color .3s;
     }
-    nav.solid .nav-cta { border-color:rgba(184,125,44,.5); color:var(--gold); }
+    nav.solid .nav-cta { border-color:rgba(122,78,18,.55); color:var(--gold-ink); }
     .nav-cta:hover { background:var(--gold); border-color:var(--gold); color:var(--ink) !important; }
     .hamburger {
-      display:none; flex-direction:column; gap:5px;
+      display:none; flex-direction:column; justify-content:center; gap:5px;
       cursor:pointer; background:none; border:none;
-      position:relative; z-index:600; padding:4px;
+      position:relative; z-index:600;
+      width:44px; height:44px; padding:10px;
     }
     .hamburger span {
       display:block; width:24px; height:1.5px;
@@ -161,14 +210,22 @@
     .mob-menu.o a:nth-child(7){animation-delay:.48s}
     .mob-menu a:hover { color:var(--gold-light); }
     .mob-contact {
-      font-size:.78rem; letter-spacing:1.5px; color:rgba(246,240,230,.3);
+      font-size:.9rem; letter-spacing:.04em; color:rgba(246,240,230,.82);
       text-align:center; opacity:0; transition:opacity .4s .5s;
+      display:flex; flex-direction:column; gap:.45rem; margin-top:.5rem;
     }
+    .mob-menu .mob-contact a {
+      font-family:'Jost',sans-serif; font-size:1rem; font-style:normal; font-weight:400;
+      color:var(--cream); letter-spacing:.02em; line-height:1.4;
+      animation:none; opacity:1; transform:none;
+    }
+    .mob-menu.o .mob-contact a { animation:none; opacity:1; transform:none; }
     .mob-menu.o .mob-contact { opacity:1; }
     .mob-close {
-      position:absolute; top:1.5rem; right:1.5rem;
-      background:none; border:none; cursor:pointer; padding:.5rem;
-      color:var(--cream); opacity:.6; transition:opacity .3s;
+      position:absolute; top:1rem; right:1rem;
+      background:none; border:none; cursor:pointer;
+      width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+      color:var(--cream); opacity:.85; transition:opacity .3s;
       line-height:1;
     }
     .mob-close:hover { opacity:1; }
@@ -179,6 +236,7 @@
     #hero {
       position:relative; height:100vh; min-height:600px;
       display:flex; align-items:flex-end; overflow:hidden;
+      background:#0A1009;
       clip-path:polygon(0 0,100% 0,100% 93%,0 100%);
     }
     .hero-bg {
@@ -198,8 +256,8 @@
     .h-eyebrow {
       display:inline-flex; align-items:center; gap:.9rem;
       font-size:.72rem; letter-spacing:3.5px; text-transform:uppercase; font-weight:500;
-      color:var(--gold-light); margin-bottom:1.75rem;
-      background:rgba(0,0,0,.35); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+      color:var(--gold-light); margin-bottom:1.5rem; line-height:1.45; text-wrap:balance;
+      background:rgba(10,16,9,.78); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
       padding:.55rem 1.1rem .55rem .85rem;
       border-left:2px solid var(--gold);
       opacity:0; transform:translateY(14px);
@@ -225,7 +283,7 @@
       font-size:3rem; font-weight:300; line-height:1; color:var(--white);
     }
     .h-stat-n sup { font-size:1.4rem; color:var(--gold-mid); vertical-align:super; }
-    .h-stat-l { font-size:.58rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.38); }
+    .h-stat-l { font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.86); }
     .h-scroll {
       position:absolute; bottom:10%; left:50%; transform:translateX(-50%);
       display:flex; flex-direction:column; align-items:center; gap:.5rem;
@@ -236,7 +294,7 @@
       background:linear-gradient(to bottom,var(--gold),transparent);
       animation:scrollP 2.2s ease infinite;
     }
-    .h-scroll p { font-size:.52rem; letter-spacing:4px; text-transform:uppercase; color:rgba(255,255,255,.26); }
+    .h-scroll p { font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:rgba(255,255,255,.78); }
 
     /* MARQUEE */
     .mq { background:var(--ink); overflow:hidden; padding:1.1rem 0; }
@@ -249,7 +307,7 @@
       flex-shrink:0;
       font-family:'Cormorant Garamond',serif;
       font-size:.95rem; font-weight:300; font-style:italic;
-      color:rgba(245,239,228,.28); padding:0 2rem; letter-spacing:.5px;
+      color:rgba(245,239,228,.72); padding:0 2rem; letter-spacing:.5px;
     }
     .mq-d { flex-shrink:0; color:var(--gold); font-size:.4rem; display:flex; align-items:center; opacity:.5; }
 
@@ -271,7 +329,7 @@
       transition:border-color .3s, transform .3s;
       position:relative;
     }
-    .why-card:hover { border-color:var(--gold); transform:translateY(-6px); box-shadow:0 12px 40px rgba(184,125,44,.1); }
+    .why-card:hover { border-color:var(--gold); transform:translateY(-4px); box-shadow:0 14px 28px rgba(17,26,15,.08); }
     .why-icon {
       font-size:2rem; margin-bottom:1.25rem; display:block; line-height:1;
     }
@@ -281,7 +339,7 @@
       margin-bottom:.6rem; line-height:1.2;
     }
     .why-card p {
-      font-size:.78rem; font-weight:300; line-height:1.75; color:var(--muted);
+      font-size:.95rem; font-weight:400; line-height:1.65; color:var(--muted);
     }
     .why-card::before {
       content:''; position:absolute; top:0; left:0;
@@ -299,33 +357,35 @@
     .ab-img:hover img { transform:scale(1.05); }
     .ab-badge {
       position:absolute; bottom:2rem; left:2rem;
-      background:rgba(10,16,9,.65); backdrop-filter:blur(12px);
-      padding:.5rem 1rem;
-      font-size:.58rem; letter-spacing:3px; text-transform:uppercase; color:rgba(245,239,228,.7);
+      background:rgba(10,16,9,.82); backdrop-filter:blur(12px);
+      padding:.55rem 1rem;
+      font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:rgba(245,239,228,.95);
     }
     .ab-text {
       background:var(--cream);
       padding:8rem 6rem 8rem 7rem;
       display:flex; flex-direction:column; justify-content:center;
     }
-    .eyebrow { display:block; font-size:.58rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+    .eyebrow { display:block; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-ink); margin-bottom:1.25rem; }
     .h2 {
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.2rem,3.2vw,3.4rem); font-weight:400; line-height:1.1; color:var(--ink); margin-bottom:2rem;
+      font-size:clamp(2.15rem,3.2vw,3.25rem); font-weight:400; line-height:1.12; color:var(--ink); margin-bottom:1.25rem;
+      text-wrap:balance;
     }
-    .body { font-size:.9rem; font-weight:300; line-height:1.95; color:var(--muted); margin-bottom:1.1rem; }
+    .body { font-size:1.05rem; font-weight:400; line-height:1.7; color:var(--muted); margin-bottom:1.1rem; max-width:62ch; }
     .stat-row { display:flex; gap:3rem; margin-top:3rem; padding-top:2.5rem; border-top:1px solid var(--cream-dark); }
     .stat-n {
       font-family:'Cormorant Garamond',serif;
       font-size:3.2rem; font-weight:300; line-height:1; color:var(--ink);
     }
     .stat-n sup { font-size:1.4rem; color:var(--gold); vertical-align:super; }
-    .stat-l { font-size:.6rem; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:.3rem; }
+    .stat-l { font-size:.75rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-top:.35rem; }
 
     /* MISIÓN */
     #mision {
       position:relative; overflow:hidden; min-height:540px;
       display:flex; align-items:center; justify-content:center;
+      background:#0A160C;
       clip-path:polygon(0 6%,100% 0,100% 94%,0 100%);
       margin:-3vw 0;
     }
@@ -339,14 +399,14 @@
       position:relative; z-index:2;
       text-align:center; padding:10rem 5rem; max-width:880px;
     }
-    .mis-ey { display:block; font-size:.58rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:2rem; }
+    .mis-ey { display:block; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1.5rem; }
     .mis-q {
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2rem,4vw,3.4rem); font-style:italic; font-weight:300; line-height:1.28;
-      color:var(--white); margin-bottom:2.5rem;
+      font-size:clamp(2rem,4vw,3.4rem); font-style:italic; font-weight:300; line-height:1.35;
+      color:var(--white); margin-bottom:2.25rem;
     }
     .mis-rule { width:56px; height:1px; background:var(--gold); margin:0 auto 2rem; }
-    .mis-sub { font-size:.88rem; font-weight:300; line-height:1.85; color:rgba(245,239,228,.52); max-width:500px; margin:0 auto; }
+    .mis-sub { font-size:1.05rem; font-weight:400; line-height:1.7; color:rgba(245,239,228,.9); max-width:46ch; margin:0 auto; }
 
     /* SERVICES */
     #services {
@@ -363,7 +423,7 @@
       font-size:clamp(2.5rem,4.5vw,5.2rem); font-weight:300; line-height:1.02; color:var(--cream);
     }
     .svc-h em { font-style:italic; color:var(--gold-light); }
-    .svc-intro { font-size:.88rem; font-weight:300; line-height:1.85; color:rgba(245,239,228,.70); }
+    .svc-intro { font-size:1.05rem; font-weight:400; line-height:1.65; color:rgba(245,239,228,.88); max-width:42ch; }
     .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
     .svc {
       background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.05);
@@ -380,7 +440,7 @@
     .svc-num {
       font-family:'Cormorant Garamond',serif;
       font-size:5.5rem; font-weight:300; line-height:1; letter-spacing:-3px;
-      color:rgba(184,125,44,.12); margin-bottom:1.5rem;
+      color:rgba(228,184,96,.58); margin-bottom:1.25rem;
     }
     .svc-name {
       font-family:'Cormorant Garamond',serif;
@@ -389,8 +449,8 @@
     .svc-rule { width:30px; height:1px; background:var(--gold); margin-bottom:1.5rem; }
     .svc-list { list-style:none; display:flex; flex-direction:column; gap:.75rem; }
     .svc-list li {
-      font-size:.78rem; font-weight:300; color:rgba(245,239,228,.42); line-height:1.7;
-      padding-left:1.1rem; position:relative;
+      font-size:.95rem; font-weight:400; color:rgba(245,239,228,.9); line-height:1.55;
+      padding-left:1.15rem; position:relative;
     }
     .svc-list li::before { content:'—'; position:absolute; left:0; color:var(--gold); font-size:.65rem; }
 
@@ -411,17 +471,15 @@
     }
     .type-card:hover .type-gr { opacity:.8; }
     .type-body { position:absolute; bottom:0; left:0; right:0; padding:2.75rem 2.5rem; }
-    .type-num { font-size:.56rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:.8rem; display:block; }
+    .type-num { font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-light); margin-bottom:.8rem; display:block; }
     .type-rl { width:22px; height:1px; background:var(--gold); margin-bottom:.9rem; }
     .type-name {
       font-family:'Cormorant Garamond',serif;
       font-size:2.4rem; font-weight:400; color:var(--white); line-height:1.05;
     }
     .type-sub {
-      font-size:.72rem; color:rgba(245,239,228,.4); font-weight:300; margin-top:.5rem;
-      transform:translateY(6px); opacity:0; transition:transform .4s, opacity .4s;
+      font-size:.95rem; color:rgba(245,239,228,.92); font-weight:400; margin-top:.55rem;
     }
-    .type-card:hover .type-sub { opacity:1; transform:none; }
 
     /* PHOTO GALLERY STRIP */
     #gallery {
@@ -465,7 +523,7 @@
     }
     .ps-text span {
       position:relative; z-index:1;
-      font-size:.62rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold-mid);
+      font-size:.75rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold-light);
     }
 
     /* CONTACT */
@@ -485,18 +543,17 @@
       position:relative; z-index:2;
       display:grid; grid-template-columns:1fr 1fr; gap:9rem; align-items:start;
     }
-    .ct-tag { display:block; font-size:.58rem; letter-spacing:4px; text-transform:uppercase; color:var(--gold-mid); margin-bottom:1.5rem; }
+    .ct-tag { display:block; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold-light); margin-bottom:1.15rem; }
     .ct-h {
       font-family:'Cormorant Garamond',serif;
-      font-size:clamp(2.5rem,5vw,5.5rem); font-weight:300; line-height:1.02; color:var(--white); margin-bottom:1.5rem;
-      text-shadow:0 0 80px rgba(184,125,44,.12);
+      font-size:clamp(2.5rem,5vw,5.5rem); font-weight:300; line-height:1.05; color:var(--white); margin-bottom:1.25rem;
     }
-    .ct-h em { font-style:italic; color:var(--gold-light); text-shadow:0 0 60px rgba(228,184,96,.2); }
-    .ct-p { font-size:.88rem; font-weight:300; line-height:1.85; color:rgba(245,239,228,.37); max-width:340px; margin-bottom:2.5rem; }
+    .ct-h em { font-style:italic; color:var(--gold-light); }
+    .ct-p { font-size:1.05rem; font-weight:400; line-height:1.65; color:rgba(245,239,228,.9); max-width:38ch; margin-bottom:2rem; }
     .btn-g {
       display:inline-flex; align-items:center; gap:.9rem;
       background:var(--gold); color:var(--ink);
-      font-size:.68rem; letter-spacing:2.5px; text-transform:uppercase; font-weight:600;
+      font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
       text-decoration:none; padding:1.1rem 2.75rem; transition:background .3s, transform .25s;
     }
     .btn-g span { transition:transform .3s; }
@@ -516,10 +573,11 @@
       padding:1.6rem 0; border-bottom:1px solid rgba(255,255,255,.05);
     }
     .info-row:first-child { border-top:1px solid rgba(255,255,255,.05); }
-    .ik { font-size:.58rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold-mid); min-width:120px; }
+    .ik { font-size:.75rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-light); min-width:7.5rem; }
     .iv {
       font-family:'Cormorant Garamond',serif;
-      font-size:1.25rem; font-weight:400; color:var(--white); text-align:right;
+      font-size:1.35rem; font-weight:400; color:var(--white); text-align:right;
+      line-height:1.3;
     }
     a.iv { text-decoration:none; transition:color .3s; }
     a.iv:hover { color:var(--gold-light); }
@@ -529,11 +587,11 @@
       position:fixed; bottom:2.5rem; right:2.5rem; z-index:400;
       width:56px; height:56px; border-radius:50%;
       background:#25D366; display:flex; align-items:center; justify-content:center;
-      text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.35);
+      text-decoration:none; box-shadow:0 8px 18px rgba(17,26,15,.28);
       transition:transform .3s, box-shadow .3s;
       opacity:0; animation:fadein 1s ease 3s forwards;
     }
-    .wa:hover { transform:scale(1.1); box-shadow:0 6px 28px rgba(37,211,102,.5); }
+    .wa:hover { transform:scale(1.06); box-shadow:0 10px 22px rgba(17,26,15,.34); }
     .wa svg { width:28px; height:28px; fill:#fff; }
 
     /* BACK TO TOP */
@@ -565,8 +623,8 @@
       font-family:'Cormorant Garamond',serif;
       font-size:1.1rem; font-weight:600; letter-spacing:5px; color:rgba(245,239,228,.55);
     }
-    .foot-mid { font-size:.68rem; font-weight:300; color:rgba(245,239,228,.2); text-align:center; line-height:1.7; }
-    .foot-cr { font-size:.6rem; letter-spacing:1px; color:rgba(245,239,228,.14); }
+    .foot-mid { font-size:.85rem; font-weight:400; color:rgba(245,239,228,.78); text-align:center; line-height:1.6; }
+    .foot-cr { font-size:.8rem; letter-spacing:.04em; color:rgba(245,239,228,.68); }
 
     /* WAITLIST MODAL */
     .modal-ov {
@@ -591,8 +649,8 @@
     }
     .modal-close:hover { color:var(--ink); }
     .modal-ey {
-      display:block; font-size:.58rem; letter-spacing:4px; text-transform:uppercase;
-      color:var(--gold); margin-bottom:1.2rem;
+      display:block; font-size:.75rem; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--gold-ink); margin-bottom:1.2rem;
     }
     .modal h2 {
       font-family:'Cormorant Garamond',serif;
@@ -607,13 +665,18 @@
       padding:.85rem 1rem; border:1px solid var(--cream-dark); background:var(--white);
       color:var(--text); outline:none; transition:border-color .3s;
     }
-    .modal-field::placeholder { color:var(--cream-dark); }
+    .modal-field::placeholder { color:var(--muted); }
+    .modal-field:disabled, .modal-btn:disabled { opacity:.6; cursor:wait; }
+    .form-error {
+      font-size:.95rem; line-height:1.5; color:#6E2A1A;
+      background:#F6E4D4; padding:.85rem 1rem; margin:0;
+    }
     .modal-field:focus { border-color:var(--gold); }
     .modal-btn {
       font-family:'Jost',sans-serif;
       display:inline-flex; align-items:center; justify-content:center;
       background:var(--gold); color:var(--ink);
-      font-size:.68rem; letter-spacing:2.5px; text-transform:uppercase; font-weight:600;
+      font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
       border:none; padding:1.1rem 2.75rem; cursor:pointer;
       transition:background .3s, transform .25s;
     }
@@ -643,46 +706,84 @@
 
     /* RESPONSIVE */
     @media (max-width:1100px) {
-      nav,nav.solid { padding-left:2rem; padding-right:2rem; }
+      nav,nav.solid { padding-left:1.25rem; padding-right:1rem; }
       .nav-links,.nav-cta { display:none; }
       .hamburger { display:flex; }
-      #hero { clip-path:none; }
-      .hero-body { padding:0 2rem 5rem; grid-template-columns:1fr; }
-      h1.h-title { font-size:clamp(3rem,10vw,5rem); }
-      .h-stats { display:none; }
-      #why { padding:6rem 2rem; }
-      .why-grid { grid-template-columns:1fr; gap:4rem; }
+      #hero { clip-path:none; min-height:100svh; }
+      .hero-body { padding:0 1.25rem 4.5rem; grid-template-columns:1fr; gap:0; }
+      h1.h-title { font-size:clamp(2.8rem,12vw,4.6rem); letter-spacing:-.03em; }
+      .h-stats {
+        display:flex; flex-direction:row; align-items:center; justify-content:flex-start;
+        margin-top:1.75rem; padding-bottom:0;
+      }
+      .h-stat {
+        text-align:left; padding:0 0 0 1rem;
+        border-right:none; border-left:1px solid rgba(228,184,96,.75);
+      }
+      .h-stat-n { font-size:2.4rem; }
+      #why { padding:4.5rem 1.25rem; }
+      .why-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .why-right { gap:1rem; }
+      .why-card { padding:1.5rem 1.25rem; }
       #about { grid-template-columns:1fr; }
-      .ab-img { min-height:55vw; max-height:400px; }
-      .ab-text { padding:5rem 2.5rem; }
+      .ab-img { min-height:62vw; max-height:420px; }
+      .ab-text { padding:3.5rem 1.25rem; }
       #mision { clip-path:none; margin:0; }
-      .mis-body { padding:7rem 2.5rem; }
-      #services { padding:6rem 2rem 8rem; }
-      .svc-hdr { grid-template-columns:1fr; gap:1.5rem; }
+      .mis-body { padding:4.5rem 1.25rem; }
+      #services { padding:4.5rem 1.25rem 6rem; }
+      .svc-hdr { grid-template-columns:1fr; gap:1.25rem; margin-bottom:2rem; }
+      .svc { padding:2rem 1.35rem 1.75rem; }
       .svc-grid { grid-template-columns:1fr; }
-      #types { padding:6rem 2rem; }
+      #types { padding:4.5rem 1.25rem; }
+      .types-hdr { margin-bottom:1.75rem; }
       .types-grid { grid-template-columns:1fr; gap:.75rem; }
-      .type-card { aspect-ratio:16/9; }
-      #gallery { grid-template-columns:repeat(3,1fr); height:200px; }
-      .gal-item:nth-child(4),.gal-item:nth-child(5) { display:none; }
+      .type-card { aspect-ratio:16/10; }
+      .type-body { padding:1.5rem 1.25rem; }
+      #gallery {
+        display:flex; height:210px; overflow-x:auto;
+        scroll-snap-type:x mandatory; scroll-padding-inline:0;
+      }
+      .gal-item { flex:0 0 78%; scroll-snap-align:start; }
+      .gal-item:nth-child(4), .gal-item:nth-child(5) { display:block; }
       .pstrip { grid-template-columns:1fr; height:auto; }
-      .ps-img { height:260px; }
-      .ps-text { padding:3rem 2rem; }
-      #contact { padding:7rem 2rem 6rem; }
-      .ct-wrap { grid-template-columns:1fr; gap:4rem; }
-      footer { flex-direction:column; gap:1.5rem; text-align:center; padding:2rem; }
-      .wa,#btt { bottom:1.5rem; }
-      .wa { right:1.5rem; }
-      #btt { left:1.5rem; }
+      .ps-img { height:240px; }
+      .ps-text p { font-size:1.45rem; }
+      #contact { padding:4.5rem 1.25rem 5.5rem; }
+      .ct-wrap { grid-template-columns:1fr; gap:2.75rem; }
+      .info-list { padding-right:4.75rem; }
+      .info-row { flex-direction:column; align-items:flex-start; gap:.3rem; padding:1.15rem 0; }
+      .iv, a.iv { text-align:left; }
+      .ps-text { padding:2.5rem 4.75rem 2.5rem 1.25rem; }
+      .modal { padding:2rem 1.25rem 1.5rem; }
+      footer { flex-direction:column; gap:1rem; text-align:center; padding:2rem 1.25rem 5.5rem; }
+      footer::before { left:1.25rem; right:1.25rem; }
+      .wa { right:1rem; bottom:1rem; width:52px; height:52px; }
+      #btt { left:auto; right:1rem; bottom:4.75rem; width:44px; height:44px; }
     }
     @media (max-width:480px) {
-      h1.h-title { font-size:3rem; letter-spacing:-1px; }
-      .stat-row { gap:1.5rem; }
+      h1.h-title { font-size:clamp(2.55rem,11.5vw,3.1rem); letter-spacing:-.03em; }
+      .h-eyebrow { display:block; max-width:100%; letter-spacing:.12em; font-size:.75rem; }
+      .btn-g, .modal-btn { width:100%; justify-content:center; }
+      .stat-row { gap:1.5rem; flex-wrap:wrap; }
       .why-right { grid-template-columns:1fr; }
+      .gal-item { flex-basis:88%; }
+      .ct-h { font-size:clamp(2.2rem,10vw,3rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+      .reveal, .mask-line span, #loader { opacity:1; transform:none; visibility:visible; }
+      #loader { display:none; }
+      .hero-bg, .mis-bg { transform:none !important; }
     }
   </style>
 </head>
 <body>
+
+<a class="skip" href="#contenido">Saltar al contenido</a>
 
 <div id="loader"><div class="loader-inner"><span class="loader-logo">GCU</span><div class="loader-bar"></div><div class="loader-sub">Gestión de Condominios Urbanos</div></div></div>
 
@@ -692,7 +793,11 @@
 </a>
 
 <!-- BACK TO TOP -->
-<a id="btt" href="#" aria-label="Volver arriba">↑</a>
+<a id="btt" href="#contenido" aria-label="Volver arriba">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+    <path d="M8 12.5V3.5M8 3.5L3.5 8M8 3.5L12.5 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
 
 <!-- MOBILE MENU -->
 <div class="mob-menu" id="mobMenu">
@@ -708,8 +813,10 @@
   <a href="#contact" onclick="cM()">Contacto</a>
   <a href="#" onclick="cM(); openWait(event)">Solicitar propuesta</a>
   <div class="mob-contact">
-    <div style="font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(246,240,230,.5);margin-bottom:.5rem;">Gestión de Condominios Urbanos</div>
-    ealier@gcucr.com &nbsp;·&nbsp; 8816-7645
+    <div style="font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,240,230,.8);margin-bottom:.35rem;">Gestión de Condominios Urbanos</div>
+    <a href="mailto:ealier@gcucr.com">ealier@gcucr.com</a>
+    <a href="tel:+50622153150">2215-3150</a>
+    <a href="tel:+50688167645">8816-7645</a>
   </div>
 </div>
 
@@ -725,12 +832,13 @@
   </ul>
   <div class="nav-r">
     <a href="#" class="nav-cta" onclick="openWait(event)">Solicitar propuesta</a>
-    <button class="hamburger" id="hbg" onclick="tM()" aria-label="Menú">
+    <button class="hamburger" id="hbg" onclick="tM()" aria-label="Menú" aria-expanded="false" aria-controls="mobMenu">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
+<main id="contenido">
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg" id="heroBg"></div>
@@ -808,7 +916,7 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="ab-img reveal">
-    <img src="images/img-001.jpg" alt="Condominio administrado por GCU" loading="lazy" />
+    <img src="images/img-001.jpg" alt="Condominio administrado por GCU" width="1073" height="931" loading="lazy" />
     <div class="ab-badge">Escazú, Costa Rica</div>
   </div>
   <div class="ab-text">
@@ -923,17 +1031,17 @@
 
 <!-- PHOTO GALLERY STRIP -->
 <div id="gallery">
-  <div class="gal-item"><img src="images/img-001.jpg" alt="" loading="lazy" /></div>
-  <div class="gal-item"><img src="images/img-006.jpg" alt="" loading="lazy" /></div>
-  <div class="gal-item"><img src="images/img-007.jpg" alt="" loading="lazy" /></div>
-  <div class="gal-item"><img src="images/img-004.jpg" alt="" loading="lazy" /></div>
-  <div class="gal-item"><img src="images/img-008.jpg" alt="" loading="lazy" /></div>
+  <div class="gal-item"><img src="images/img-001.jpg" alt="Patio de ladrillo con un árbol central en un condominio de Escazú" width="1073" height="931" loading="lazy" /></div>
+  <div class="gal-item"><img src="images/img-006.jpg" alt="Piscina y jardín arbolado de un condominio residencial" width="1080" height="1063" loading="lazy" /></div>
+  <div class="gal-item"><img src="images/img-007.jpg" alt="Entrada con portón y casetilla de un condominio" width="932" height="545" loading="lazy" /></div>
+  <div class="gal-item"><img src="images/img-004.jpg" alt="Condominio horizontal de casas blancas con techo de teja" width="595" height="605" loading="lazy" /></div>
+  <div class="gal-item"><img src="images/img-008.jpg" alt="Calle interna con palmeras de un condominio horizontal" width="1200" height="800" loading="lazy" /></div>
 </div>
 
 <!-- PHOTO STRIP -->
 <div class="pstrip">
   <div class="ps-img">
-    <img src="images/img-008.jpg" alt="Condominio horizontal, Costa Rica" loading="lazy" />
+    <img src="images/img-008.jpg" alt="Condominio horizontal, Costa Rica" width="1200" height="800" loading="lazy" />
   </div>
   <div class="ps-text">
     <p>"Cada condominio es único.<br>Nuestro servicio también lo es."</p>
@@ -960,6 +1068,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- WAITLIST MODAL -->
 <div class="modal-ov" id="waitModal">
@@ -970,11 +1079,12 @@
     <form class="modal-form" id="waitForm" onsubmit="submitForm(event)">
       <input type="hidden" name="_subject" value="Solicitud de propuesta — GCU" />
       <input type="hidden" name="_captcha" value="false" />
-      <input class="modal-field" type="text" name="nombre" placeholder="Nombre completo" required />
-      <input class="modal-field" type="email" name="correo" placeholder="Correo electrónico" required />
-      <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" />
-      <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" />
-      <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" rows="3" style="resize:vertical;"></textarea>
+      <input class="modal-field" type="text" name="nombre" placeholder="Nombre completo" aria-label="Nombre completo" autocomplete="name" required />
+      <input class="modal-field" type="email" name="correo" placeholder="Correo electrónico" aria-label="Correo electrónico" autocomplete="email" required />
+      <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" autocomplete="tel" />
+      <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" aria-label="Nombre del condominio" />
+      <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" aria-label="Mensaje adicional" rows="3" style="resize:vertical;"></textarea>
+      <p class="form-error" id="formError" hidden>Hubo un error. Por favor intente de nuevo o escriba a ealier@gcucr.com.</p>
       <button type="submit" class="modal-btn" id="waitBtn">Enviar solicitud</button>
     </form>
   </div>
@@ -984,17 +1094,19 @@
 <footer>
   <div class="foot-logo">GCU</div>
   <div class="foot-mid">GCU Gestión de Condominios Urbanos S.R.L.<br>Escazú, San José, Costa Rica</div>
-  <div class="foot-cr">© 2025 GCU</div>
+  <div class="foot-cr">© 2026 GCU</div>
 </footer>
 
 <script>
 // LOADER
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 window.addEventListener('load', () => {
-  setTimeout(() => {
+  const revealHero = () => {
     document.getElementById('loader').classList.add('gone');
-    // trigger hero mask lines
     document.querySelectorAll('#heroTitle .mask-line').forEach(l => l.classList.add('play'));
-  }, 1100);
+  };
+  if (reduceMotion) revealHero();
+  else setTimeout(revealHero, 1100);
 });
 
 
@@ -1015,12 +1127,13 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(a=>{
     a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
   });
-  // parallax
-  document.getElementById('heroBg').style.transform=`translateY(${sy*.32}px)`;
-  const m=document.getElementById('mision');
-  if(m){
-    const r=m.getBoundingClientRect();
-    document.getElementById('misBg').style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.18}px)`;
+  if (!reduceMotion) {
+    document.getElementById('heroBg').style.transform=`translateY(${sy*.32}px)`;
+    const m=document.getElementById('mision');
+    if(m){
+      const r=m.getBoundingClientRect();
+      document.getElementById('misBg').style.transform=`translateY(${(r.top+r.height/2-window.innerHeight/2)*.18}px)`;
+    }
   }
 },{passive:true});
 
@@ -1029,12 +1142,13 @@ function tM(){
   const m=document.getElementById('mobMenu'),b=document.getElementById('hbg'),l=document.getElementById('nLogo');
   const o=m.classList.toggle('o');
   b.classList.toggle('o',o);
+  b.setAttribute('aria-expanded', o ? 'true' : 'false');
   l.classList.toggle('mo',o);
   document.body.style.overflow=o?'hidden':'';
 }
 function cM(){
   const m=document.getElementById('mobMenu'),b=document.getElementById('hbg'),l=document.getElementById('nLogo');
-  m.classList.remove('o'); b.classList.remove('o'); l.classList.remove('mo');
+  m.classList.remove('o'); b.classList.remove('o'); b.setAttribute('aria-expanded','false'); l.classList.remove('mo');
   document.body.style.overflow='';
 }
 
@@ -1077,9 +1191,16 @@ function closeWait(){
 document.getElementById('waitModal').addEventListener('click',function(e){
   if(e.target===this) closeWait();
 });
+document.addEventListener('keydown',function(e){
+  if(e.key!=='Escape') return;
+  if(document.getElementById('waitModal').classList.contains('open')) closeWait();
+  if(document.getElementById('mobMenu').classList.contains('o')) cM();
+});
 async function submitForm(e){
   e.preventDefault();
   const btn=document.getElementById('waitBtn');
+  const err=document.getElementById('formError');
+  err.hidden=true;
   btn.textContent='Enviando...'; btn.disabled=true;
   try {
     const res=await fetch('https://formsubmit.co/ajax/ealier@gcucr.com',{
@@ -1088,11 +1209,11 @@ async function submitForm(e){
       body:new FormData(document.getElementById('waitForm'))
     });
     if(res.ok){
-      document.getElementById('waitForm').innerHTML='<p style="text-align:center;padding:2rem 0;font-family:\'Cormorant Garamond\',serif;font-size:1.3rem;color:var(--gold);">¡Gracias! Nos pondremos en contacto pronto.</p>';
+      document.getElementById('waitForm').innerHTML='<p style="text-align:center;padding:2rem 0;font-family:\'Cormorant Garamond\',serif;font-size:1.3rem;color:var(--gold-ink);">¡Gracias! Nos pondremos en contacto pronto.</p>';
     } else { throw new Error(); }
   } catch(_){
     btn.textContent='Enviar solicitud'; btn.disabled=false;
-    alert('Hubo un error. Por favor intente de nuevo.');
+    err.hidden=false;
   }
 }
 </script>
