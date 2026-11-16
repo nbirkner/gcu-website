@@ -1,0 +1,42 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'none'"
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "continue": true,
+      "transforms": [
+        {
+          "type": "response.headers",
+          "op": "set",
+          "target": { "key": "X-Frame-Options" },
+          "args": "DENY"
+        },
+        {
+          "type": "response.headers",
+          "op": "set",
+          "target": { "key": "X-Content-Type-Options" },
+          "args": "nosniff"
+        },
+        {
+          "type": "response.headers",
+          "op": "append",
+          "target": { "key": "Content-Security-Policy" },
+          "args": "frame-ancestors 'none'"
+        }
+      ]
+    }
+  ]
+}
