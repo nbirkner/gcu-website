@@ -634,7 +634,7 @@
       padding:1rem;
       opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s;
     }
-    .modal-ov.open { opacity:1; visibility:visible; }
+    .modal-ov.open { opacity:1; visibility:visible; transition:opacity .4s; }
     .modal {
       background:var(--cream); max-width:520px; width:100%;
       padding:3.5rem 3rem;
@@ -1072,9 +1072,9 @@
 
 <!-- WAITLIST MODAL -->
 <div class="modal-ov" id="waitModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeWait()">&times;</button>
-    <h2>Solicitar propuesta</h2>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="waitTitle">
+    <button type="button" class="modal-close" onclick="closeWait()" aria-label="Cerrar">&times;</button>
+    <h2 id="waitTitle">Solicitar propuesta</h2>
     <p>Trabajamos con un número limitado de clientes para garantizar un servicio altamente personalizado. Con gusto podemos evaluar nuevas solicitudes según disponibilidad.</p>
     <form class="modal-form" id="waitForm" onsubmit="submitForm(event)">
       <input type="hidden" name="_subject" value="Solicitud de propuesta — GCU" />
@@ -1084,7 +1084,7 @@
       <input class="modal-field" type="tel" name="telefono" placeholder="Teléfono" aria-label="Teléfono" autocomplete="tel" />
       <input class="modal-field" type="text" name="condominio" placeholder="Nombre del condominio" aria-label="Nombre del condominio" />
       <textarea class="modal-field" name="mensaje" placeholder="Mensaje adicional (opcional)" aria-label="Mensaje adicional" rows="3" style="resize:vertical;"></textarea>
-      <p class="form-error" id="formError" hidden>Hubo un error. Por favor intente de nuevo o escriba a ealier@gcucr.com.</p>
+      <p class="form-error" id="formError" role="alert" hidden>Hubo un error. Por favor intente de nuevo o escriba a ealier@gcucr.com.</p>
       <button type="submit" class="modal-btn" id="waitBtn">Enviar solicitud</button>
     </form>
   </div>
@@ -1179,19 +1179,34 @@ const rObs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
 
 // WAITLIST MODAL
+var waitOpener=null;
 function openWait(e){
   e.preventDefault();
-  document.getElementById('waitModal').classList.add('open');
+  waitOpener=document.activeElement;
+  var m=document.getElementById('waitModal');
+  m.classList.add('open');
   document.body.style.overflow='hidden';
+  (m.querySelector('input:not([type=hidden])') || m.querySelector('.modal-close')).focus();
 }
 function closeWait(){
   document.getElementById('waitModal').classList.remove('open');
   document.body.style.overflow='';
+  if(waitOpener && document.contains(waitOpener) && waitOpener.offsetParent) waitOpener.focus();
+  waitOpener=null;
 }
 document.getElementById('waitModal').addEventListener('click',function(e){
   if(e.target===this) closeWait();
 });
 document.addEventListener('keydown',function(e){
+  var m=document.getElementById('waitModal');
+  if(e.key==='Tab' && m.classList.contains('open')){
+    var f=m.querySelectorAll('button:not([disabled]),input:not([type=hidden]):not([disabled]),textarea:not([disabled])');
+    var first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    else if(!m.contains(document.activeElement)){ e.preventDefault(); first.focus(); }
+    return;
+  }
   if(e.key!=='Escape') return;
   if(document.getElementById('waitModal').classList.contains('open')) closeWait();
   if(document.getElementById('mobMenu').classList.contains('o')) cM();
@@ -1209,7 +1224,7 @@ async function submitForm(e){
       body:new FormData(document.getElementById('waitForm'))
     });
     if(res.ok){
-      document.getElementById('waitForm').innerHTML='<p style="text-align:center;padding:2rem 0;font-family:\'Cormorant Garamond\',serif;font-size:1.3rem;color:var(--gold-ink);">¡Gracias! Nos pondremos en contacto pronto.</p>';
+      document.getElementById('waitForm').innerHTML='<p role="status" style="text-align:center;padding:2rem 0;font-family:\'Cormorant Garamond\',serif;font-size:1.3rem;color:var(--gold-ink);">¡Gracias! Nos pondremos en contacto pronto.</p>';
     } else { throw new Error(); }
   } catch(_){
     btn.textContent='Enviar solicitud'; btn.disabled=false;
