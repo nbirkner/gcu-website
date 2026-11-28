@@ -29,3 +29,8 @@ FormSubmit puede pedir una confirmación la primera vez que recibe un envío a e
 - `robots.txt` permite el rastreo y apunta al sitemap.
 - `sitemap.xml` incluye solo `https://www.gcucr.com/`.
 - `index.html` declara canonical, Open Graph y Twitter Card. La imagen para compartir es `images/img-008.jpg`.
+
+## Pruebas
+
+- `node --test tests/page.test.mjs`: sin dependencias. Revisa que existan las imágenes y archivos que usa la página, que cada `img` tenga `alt` y que canonical, `og:url`, JSON-LD, sitemap y robots apunten a `https://www.gcucr.com/`.
+- `NODE_PATH=<carpeta con playwright> node --test tests/*.test.mjs`: agrega la prueba del modal. No hay `package.json` a propósito, para que Vercel siga sirviendo el sitio como estático.

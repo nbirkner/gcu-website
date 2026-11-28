@@ -1,4 +1,4 @@
-// Run: NODE_PATH=<dir with playwright installed> node --test tests/
+// Run: NODE_PATH=<dir with playwright installed> node --test tests/*.test.mjs
 // No package.json on purpose, so Vercel keeps serving this as a plain static site.
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
